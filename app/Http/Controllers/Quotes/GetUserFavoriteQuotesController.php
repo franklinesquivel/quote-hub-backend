@@ -18,6 +18,6 @@ class GetUserFavoriteQuotesController extends Controller
     {
         /** @var User $user */
         $user = auth()->user();
-        return response()->json($user->favoriteQuotes()->get());
+        return response()->json($user->quotes()->get());
     }
 }

@@ -20,7 +20,7 @@ class Category extends Model
 
     public function quotes(): HasMany
     {
-        return $this->hasMany(FavoriteQuote::class);
+        return $this->hasMany(Quote::class);
     }
 
     public function users(): BelongsToMany

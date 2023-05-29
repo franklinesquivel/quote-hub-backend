@@ -38,9 +38,9 @@ class User extends Authenticatable
         return $this->type === UserTypesConstant::ADMIN;
     }
 
-    public function favoriteQuotes(): HasMany
+    public function quotes(): HasMany
     {
-        return $this->hasMany(FavoriteQuote::class);
+        return $this->hasMany(Quote::class);
     }
 
     public function categories(): BelongsToMany

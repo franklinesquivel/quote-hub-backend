@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Quotes;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Quotes\CreateQuoteRequest;
-use App\Models\FavoriteQuote;
+use App\Models\Quote;
 use Illuminate\Http\JsonResponse;
 
 class CreateQuoteController extends Controller
@@ -18,7 +18,7 @@ class CreateQuoteController extends Controller
     {
         $data = $request->validated();
 
-        $quote = FavoriteQuote::create(array_merge(
+        $quote = Quote::create(array_merge(
             $data,
             ['user_id' => auth()->id()]
         ));
