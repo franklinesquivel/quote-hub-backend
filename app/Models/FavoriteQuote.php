@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\UsesUuid;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -14,13 +13,19 @@ class FavoriteQuote extends Model
 {
     use UsesUuid;
 
-    public $timestamps = false;
-
     protected $fillable = [
         'quote',
         'author',
         'category_id',
         'user_id'
+    ];
+
+    protected $hidden = [
+        'updated_at'
+    ];
+
+    protected $casts = [
+        'created_at' => 'date:d-m-Y'
     ];
 
     public function category(): BelongsTo
