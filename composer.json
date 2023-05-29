@@ -1,11 +1,22 @@
 {
-    "name": "laravel/laravel",
+    "name": "quotehub/backend",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "version": "0.0.0",
+    "authors": [
+        {
+            "name": "Franklin Esquivel",
+            "email": "franklin.esquivel@outlook.com",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Eduardo Guerreta",
+            "role": "Developer"
+        }
+    ],
+    "description": "QuoteHub API",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
