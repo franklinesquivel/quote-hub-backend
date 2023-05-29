@@ -11,3 +11,5 @@ Route::prefix('auth')->group(function () {
         return $request->user();
     })->middleware('auth:sanctum');
 });
+
+Route::get('/admin-test', fn() => [])->middleware(['auth:sanctum', 'abilities:is-admin']);

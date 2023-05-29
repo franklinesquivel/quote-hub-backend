@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -29,8 +30,12 @@ class CreateUserAccessTokenController extends Controller
             ]);
         }
 
+        $user->tokens()->delete();
+
         return response()->json([
-            'token' => $user->createToken('test-token-name')->plainTextToken
+            'token' => $user->createToken('test-token-name', [
+                $user->isAdmin() ? UserTypesAbilitiesConstant::ADMIN : UserTypesAbilitiesConstant::USER
+            ])->plainTextToken
         ]);
     }
 }

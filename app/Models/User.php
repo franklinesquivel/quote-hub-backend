@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\UserTypesConstant;
 use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,4 +30,9 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function isAdmin(): bool
+    {
+        return $this->type === UserTypesConstant::ADMIN;
+    }
 }
