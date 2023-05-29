@@ -19,4 +19,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'api_ninjas' => [
+        'api_key' => env('API_NINJAS_API_KEY'),
+        'quotes' => 'https://api.api-ninjas.com/v1/quotes'
+    ]
 ];

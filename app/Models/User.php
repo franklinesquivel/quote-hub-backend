@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Constants\UserTypesConstant;
 use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -24,7 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     protected $casts = [
@@ -34,5 +36,15 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->type === UserTypesConstant::ADMIN;
+    }
+
+    public function favoriteQuotes(): HasMany
+    {
+        return $this->hasMany(FavoriteQuote::class);
+    }
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'users_categories');
     }
 }
