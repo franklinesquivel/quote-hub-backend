@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Constants\UserTypesConstant;
 use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -34,5 +35,10 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->type === UserTypesConstant::ADMIN;
+    }
+
+    public function favoriteQuotes(): HasMany
+    {
+        return $this->hasMany(FavoriteQuote::class);
     }
 }
