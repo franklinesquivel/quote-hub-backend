@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\CreateUserAccessTokenController;
+use App\Http\Controllers\Auth\GetAuthUserController;
 
 Route::post('/get-token', CreateUserAccessTokenController::class);
-
-Route::get('/me', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/me', GetAuthUserController::class);
