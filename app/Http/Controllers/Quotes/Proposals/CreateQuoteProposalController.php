@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Quotes\Proposals;
 
-use App\Constants\QuoteProposalTypeConstant;
 use App\Constants\QuoteTypesConstant;
 use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
@@ -36,6 +35,6 @@ class CreateQuoteProposalController extends Controller
             "quote_id" => $quote->id
         ]);
 
-        return response()->json( compact('quote', 'proposal'), 201);
+        return response()->json(compact('quote', $proposal), 201);
     }
 }

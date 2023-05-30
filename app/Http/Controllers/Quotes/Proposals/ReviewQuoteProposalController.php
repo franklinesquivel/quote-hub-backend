@@ -29,6 +29,6 @@ class ReviewQuoteProposalController extends Controller
 
         $quote_proposal->save();
 
-        return response()->json($quote_proposal, 201);
+        return response()->json([], 204);
     }
 }
