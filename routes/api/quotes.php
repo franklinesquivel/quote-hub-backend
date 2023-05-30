@@ -10,4 +10,4 @@ Route::post('/', CreateQuoteController::class);
 Route::get('/favorite', GetUserFavoriteQuotesController::class);
 Route::get('/proposal', GetAllPendingForApprovalProposalsController::class);
 Route::post('/proposal', CreateQuoteProposalController::class);
-Route::patch('/proposal/{quote_proposal}', ReviewQuoteProposalController::class);
+Route::post('/proposal/{quote_proposal}', ReviewQuoteProposalController::class);
