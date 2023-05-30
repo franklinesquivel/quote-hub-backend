@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\QuoteProposal;
+namespace App\Http\Controllers\Quotes\Proposal;
 
 use App\Http\Controllers\Controller;
 use App\Models\QuoteProposal;

@@ -9,7 +9,6 @@ use App\Http\Requests\Quotes\CreateQuoteRequest;
 use App\Models\Quote;
 use App\Models\QuoteProposal;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class CreateQuoteProposalController extends Controller
 {

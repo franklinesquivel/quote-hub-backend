@@ -20,8 +20,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')->prefix('api')->group(function () {
                 $this->mapAuthApiRoutes()
                     ->mapCategoriesApiRoutes()
-                    ->mapQuotesApiRoutes()
-                    ->mapQuoteProposalsApiRoutes();
+                    ->mapQuotesApiRoutes();
             });
         });
     }
@@ -44,9 +43,4 @@ class RouteServiceProvider extends ServiceProvider
         return $this;
     }
 
-    private function mapQuoteProposalsApiRoutes(): self
-    {
-        Route::prefix('quote-proposals')->group(base_path('routes/api/quote_proposals.php'));
-        return $this;
-    }
 }

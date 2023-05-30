@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\QuoteProposal;
+namespace App\Http\Controllers\Quotes\Proposal;
 
 use App\Constants\QuoteProposalTypeConstant;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\QuoteProposal\CreateQuoteProposalRequest;
+use App\Http\Requests\Quotes\Proposal\CreateQuoteProposalRequest;
 use App\Models\QuoteProposal;
+use Illuminate\Http\JsonResponse;
 
 class ReviewQuoteProposalcontroller extends Controller
 {
 
-    public function __invoke(CreateQuoteProposalRequest $request, QuoteProposal $quote_proposal)
+    public function __invoke(CreateQuoteProposalRequest $request, QuoteProposal $quote_proposal) : JsonResponse
     {
         $data = $request->validated();
 
