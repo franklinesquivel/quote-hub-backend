@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Quotes\Proposal;
+namespace App\Http\Controllers\Quotes\Proposals;
 
 use App\Constants\QuoteProposalTypeConstant;
 use App\Constants\QuoteTypesConstant;
@@ -32,16 +32,10 @@ class CreateQuoteProposalController extends Controller
         ));
 
 
-        $quote_proposal = QuoteProposal::create([
+        $proposal = QuoteProposal::create([
             "quote_id" => $quote->id
         ]);
 
-        return response()->json(array_merge(
-            $quote->toArray(),
-            [
-                'status' => QuoteProposalTypeConstant::PENDING,
-                'quote_proposal_id' => $quote_proposal->id
-            ]
-        ), 201);
+        return response()->json( compact('quote', 'proposal'), 201);
     }
 }

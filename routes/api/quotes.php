@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Quotes\CreateQuoteController;
 use App\Http\Controllers\Quotes\GetUserFavoriteQuotesController;
-use App\Http\Controllers\Quotes\Proposal\CreateQuoteProposalController;
-use App\Http\Controllers\Quotes\Proposal\GetAllQuoteProposalsController;
-use App\Http\Controllers\Quotes\Proposal\ReviewQuoteProposalController;
+use App\Http\Controllers\Quotes\Proposals\CreateQuoteProposalController;
+use App\Http\Controllers\Quotes\Proposals\GetAllQuoteProposalsController;
+use App\Http\Controllers\Quotes\Proposals\ReviewQuoteProposalController;
 
 Route::post('/', CreateQuoteController::class);
 Route::get('/favorite', GetUserFavoriteQuotesController::class);

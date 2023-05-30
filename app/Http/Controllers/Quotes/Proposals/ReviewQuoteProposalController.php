@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Quotes\Proposal;
+namespace App\Http\Controllers\Quotes\Proposals;
 
 use App\Constants\QuoteProposalTypeConstant;
 use App\Constants\UserTypesAbilitiesConstant;
