@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Quotes\Proposals;
 
-use App\Constants\QuoteProposalTypeConstant;
 use App\Constants\QuoteTypesConstant;
 use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
