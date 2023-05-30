@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\QuoteProposals;
 
+use App\Constants\QuoteProposalTypesConstant;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReviewQuoteProposalRequest extends FormRequest
@@ -16,7 +17,7 @@ class ReviewQuoteProposalRequest extends FormRequest
     {
         return [
             'rejected_reason' => 'nullable|string',
-            'status' => 'required|string',
+            'status' => 'required|in:' . QuoteProposalTypesConstant::PENDING . ',' . QuoteProposalTypesConstant::ACCEPTED . ',' . QuoteProposalTypesConstant::REJECTED,
         ];
     }
 }
