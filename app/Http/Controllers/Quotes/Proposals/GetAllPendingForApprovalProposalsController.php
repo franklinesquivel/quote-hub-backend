@@ -7,7 +7,6 @@ use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
 use App\Models\QuoteProposal;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class GetAllPendingForApprovalProposalsController extends Controller
 {
@@ -17,7 +16,7 @@ class GetAllPendingForApprovalProposalsController extends Controller
         $this->middleware(['auth:sanctum', 'abilities:' . UserTypesAbilitiesConstant::ADMIN]);
     }
 
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(): JsonResponse
     {
         return response()->json(QuoteProposal::where('status', QuoteProposalTypesConstant::PENDING)->get());
     }
