@@ -2,7 +2,7 @@
 
 namespace App\Constants;
 
-final class QuoteProposalTypeConstant
+final class QuoteProposalTypesConstant
 {
     public const PENDING = 'PENDING';
 

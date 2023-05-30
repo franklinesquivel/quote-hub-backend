@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Quotes\Proposals;
 
-use App\Constants\QuoteProposalTypeConstant;
+use App\Constants\QuoteProposalTypesConstant;
 use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteProposals\ReviewQuoteProposalRequest;
@@ -23,12 +23,12 @@ class ReviewQuoteProposalController extends Controller
         $quote_proposal->status = $data['status'];
         $quote_proposal->rejected_reason = $data['rejected_reason'];
 
-        if ($data['status'] === QuoteProposalTypeConstant::REJECTED) {
+        if ($data['status'] === QuoteProposalTypesConstant::REJECTED) {
             $quote_proposal->rejected_at = now();
         }
 
         $quote_proposal->save();
 
-        return response()->json($quote_proposal, 201);
+        return response()->json([], 204);
     }
 }
