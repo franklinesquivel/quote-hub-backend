@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Quotes\Proposals;
 
 use App\Constants\QuoteProposalTypesConstant;
-use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteProposals\ReviewQuoteProposalRequest;
 use App\Models\QuoteProposal;
@@ -11,12 +10,8 @@ use Illuminate\Http\JsonResponse;
 
 class ReviewQuoteProposalController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth:sanctum', 'abilities:' . UserTypesAbilitiesConstant::ADMIN]);
-    }
-
     public function __invoke(ReviewQuoteProposalRequest $request, QuoteProposal $quote_proposal): JsonResponse
+
     {
         $data = $request->validated();
 
