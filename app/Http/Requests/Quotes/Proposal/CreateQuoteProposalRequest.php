@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\QuoteProposals;
+namespace App\Http\Requests\Quotes\Proposal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReviewQuoteProposalRequest extends FormRequest
+class CreateQuoteProposalRequest extends FormRequest
 {
     public function authorize(): bool
     {
