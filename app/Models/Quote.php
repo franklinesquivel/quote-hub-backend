@@ -5,11 +5,12 @@ namespace App\Models;
 use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @mixin IdeHelperFavoriteQuote
+ * @mixin IdeHelperQuote
  */
-class FavoriteQuote extends Model
+class Quote extends Model
 {
     use UsesUuid;
 
@@ -36,5 +37,10 @@ class FavoriteQuote extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function quote_proposals(): HasOne
+    {
+        return $this->hasOne(QuoteProposal::class);
     }
 }
