@@ -18,11 +18,13 @@ class CreateUserAccessTokenController extends Controller
     public function __invoke(Request $request): JsonResponse
     {
         $data = $request->validate([
-            'email' => 'required|email',
+            'user_identifier' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $user = User::where('email', $data['email'])->first();
+        $user = User::where('email', $data['user_identifier'])
+            ->orWhere('username', $data['user_identifier'])
+            ->first();
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
             throw ValidationException::withMessages([
