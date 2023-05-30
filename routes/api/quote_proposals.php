@@ -3,7 +3,7 @@
 
 use App\Http\Controllers\QuoteProposal\CreateQuoteProposalController;
 use App\Http\Controllers\Quotes\Proposal\GetAllQuoteProposalsController;
-use App\Http\Controllers\Quotes\Proposal\ReviewQuoteProposalcontroller;
+use App\Http\Controllers\Quotes\Proposal\ReviewQuoteProposalController;
 
 
 Route::post('/', CreateQuoteProposalController::class)
@@ -12,5 +12,5 @@ Route::post('/', CreateQuoteProposalController::class)
 
 Route::middleware(['auth:sanctum', 'abilities:is-admin'])->group(function () {
     Route::get('/', GetAllQuoteProposalsController::class);
-    Route::patch('/{quote_proposal}', ReviewQuoteProposalcontroller::class);
+    Route::patch('/{quote_proposal}', ReviewQuoteProposalController::class);
 });

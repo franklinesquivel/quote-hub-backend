@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\QuoteProposal;
+namespace App\Http\Controllers\Quotes\Proposal;
 
 use App\Constants\QuoteProposalTypeConstant;
 use App\Constants\QuoteTypesConstant;
+use App\Constants\UserTypesAbilitiesConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Quotes\CreateQuoteRequest;
 use App\Models\Quote;
@@ -15,7 +16,7 @@ class CreateQuoteProposalController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:sanctum');
+        $this->middleware(['auth:sanctum', 'abilities:' . UserTypesAbilitiesConstant::USER]);
     }
 
     public function __invoke(CreateQuoteRequest $request): JsonResponse
