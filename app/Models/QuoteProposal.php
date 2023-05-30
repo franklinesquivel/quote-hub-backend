@@ -7,9 +7,6 @@ use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * @mixin IdeHelperQuoteProposal
- */
 class QuoteProposal extends Model
 {
     use HasFactory, UsesUuid;

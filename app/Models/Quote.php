@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @mixin IdeHelperQuote
+ * @mixin IdeHelperFavoriteQuote
  */
 class Quote extends Model
 {
