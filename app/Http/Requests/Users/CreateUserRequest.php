@@ -18,7 +18,7 @@ class CreateUserRequest extends FormRequest
             'email' => 'required|email|unique:users,email',
             'username' => 'required|string|unique:users,username',
             'password' => 'required|string|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[.@$!%*?&])[A-Za-z\d.@$!%*?&]{8,}$/',
-            'confirm_password' => 'required|string|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[.@$!%*?&])[A-Za-z\d.@$!%*?&]{8,}$/',
+            'confirm_password' => 'required|string|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[.@$!%*?&])[A-Za-z\d.@$!%*?&]{8,}$/|same:password',
             'name' => 'required|string',
         ];
     }
