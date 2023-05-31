@@ -18,7 +18,8 @@ class Quote extends Model
         'quote',
         'author',
         'category_id',
-        'user_id'
+        'user_id',
+        'type'
     ];
 
     protected $hidden = [
