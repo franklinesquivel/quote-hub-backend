@@ -19,11 +19,11 @@ class DeleteFavoriteQuoteController extends Controller
     public function __invoke(Quote $quote): JsonResponse
     {
         if ($quote->type !== QuoteTypesConstant::FAVORITE) {
-            return response()->json('Conflict', 409);
+            abort(409, 'Conflict');
         }
 
         if ($quote->user->id !== auth()->id()) {
-            return response()->json('Forbidden', 403);
+            abort(403, 'Forbidden');
         }
 
         $quote->delete();
