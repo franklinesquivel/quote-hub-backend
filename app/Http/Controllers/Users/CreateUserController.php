@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Constants\UserTypesAbilitiesConstant;
 use App\Constants\UserTypesConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\CreateUserRequest;
@@ -16,22 +17,18 @@ class CreateUserController extends Controller
     {
         $data = $request->validated();
 
-        if ($data['password'] !== $data['confirm_password']) {
-            return response()->json([
-                'Message' => "Passwords don't match. Please verify the confirm password input."
-            ], 400);
-        }
-
-        $user = User::create(
+        $user = User::create(array_merge(
+            $data,
             [
-                'email' => $data['email'],
-                'username' => $data['username'],
-                'name' => $data['name'],
                 'password' => Hash::make($data['password']),
                 'type' => UserTypesConstant::USER
             ]
-        );
+        ));
 
-        return response()->json($user, 201);
+        return response()->json([
+            'token' => $user->createToken('web_client', [
+                UserTypesAbilitiesConstant::USER
+            ])->plainTextToken
+        ], 201);
     }
 }
