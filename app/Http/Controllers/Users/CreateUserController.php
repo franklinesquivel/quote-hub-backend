@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Users;
 
 use App\Constants\UserTypesAbilitiesConstant;
-use App\Constants\UserTypesConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\CreateUserRequest;
 use App\Models\User;
@@ -21,7 +20,6 @@ class CreateUserController extends Controller
             $data,
             [
                 'password' => Hash::make($data['password']),
-                'type' => UserTypesConstant::USER
             ]
         ));
 
