@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Constants\UserTypesConstant;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -19,7 +18,7 @@ class GetAuthUserController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        if ($user->type !== UserTypesConstant::ADMIN) {
+        if (!$user->isAdmin()) {
             $user->load('categories');
         }
 
