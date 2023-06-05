@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class GetAuthUserController extends Controller
 {
@@ -19,7 +18,9 @@ class GetAuthUserController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        $user->load('categories');
+        if (!$user->isAdmin()) {
+            $user->load('categories');
+        }
 
         return response()->json($user);
     }
